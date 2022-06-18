@@ -1,3 +1,5 @@
 no-var
 no-plusplus
+no-var
+no-undef
 no-return-assign
