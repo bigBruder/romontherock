@@ -1,5 +1,4 @@
 no-var
 eqeqeq
-prettier/prettier
+
 no-return-assign
-prettier/prettier
