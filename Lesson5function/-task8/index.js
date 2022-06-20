@@ -5,11 +5,12 @@ function compareSums(firstFrom, firstTo, secondFrom, secondTo) {
     for (let i = firstFrom; i <= firstTo; i++) {
       sum1 += i;
     }
-    for (let j = secondFrom; j <= secondTo; j++) {
-      sum2 += i;
-    }
+    return sum1;
   }
-  if (sum1 > sum2) {
+  for (let j = secondFrom; j <= secondTo; j++) {
+    sum2 += i;
+  }
+  if (sum > sum2) {
     return true;
   }
   return false;
