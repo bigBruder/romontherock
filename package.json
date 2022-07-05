@@ -1,7 +1,6 @@
 {
   "name": "js-full",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +15,15 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.7.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romontherock/romontherock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/romontherock/romontherock/issues"
+  },
+  "homepage": "https://github.com/romontherock/romontherock#readme",
+  "description": ""
 }
