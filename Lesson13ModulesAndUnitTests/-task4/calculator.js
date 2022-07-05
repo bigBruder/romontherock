@@ -1,7 +1,30 @@
-export default (a, b) => +a + +b;
-export const getDifference = (a, b) => a - b;
-export const getMultiplication = (a, b) => a * b;
-export const getDivision = (a, b) => a / b;
+/* eslint-disable default-case */
+
+export const calc = (expression) => {
+  if (typeof expression !== "string") {
+    return null;
+  }
+
+  const [a, operation, b] = expression.split(" ");
+  let result;
+
+  switch (operation) {
+    case "+":
+      result = +a + +b;
+      break;
+    case "-":
+      result = +a - +b;
+      break;
+    case "*":
+      result = +a * +b;
+      break;
+    case "/":
+      result = +a / +b;
+      break;
+  }
+
+  return `${expression} = ${result}`;
+};
 
 // -- test data
-// console.log(getDifference("10", "10"));
+console.log(calc(10 + 10));
