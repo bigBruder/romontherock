@@ -5,7 +5,10 @@ function getTitleElement() {
 }
 
 function getInputElement() {
-  const inputElement = document.querySelector("text");
+  const inputElement = document.querySelector("input");
   console.dir(inputElement);
   return inputElement;
 }
+
+getTitleElement();
+getInputElement();
