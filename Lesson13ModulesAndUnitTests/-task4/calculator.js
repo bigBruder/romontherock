@@ -20,6 +20,7 @@ export const calc = (expression) => {
       break;
     case "/":
       result = +a / +b;
+      `q`;
       break;
   }
 
@@ -27,4 +28,4 @@ export const calc = (expression) => {
 };
 
 // -- test data
-console.log(calc(10 + 10));
+// console.log(calc(10 + 10));
