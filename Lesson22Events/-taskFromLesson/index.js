@@ -1,3 +1,9 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+  logTargetAdd();
+});
+
+
 const eventsLstElem = document.querySelector(".events-list");
 const divElem = document.querySelector(".rect_div");
 const pElem = document.querySelector(".rect_p");
@@ -43,16 +49,5 @@ const logTargetRemove = () => {
 clear.addEventListener("click", logTargetEmpty);
 removeHandlers.addEventListener("click", logTargetRemove);
 handlers.addEventListener("click", logTargetAdd);
-logTargetAdd();
 
-document.addEventListener("DOMContentLoaded", () => {
-  logTargetEmpty();
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  logTargetRemove();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  logTargetAdd();
-});
