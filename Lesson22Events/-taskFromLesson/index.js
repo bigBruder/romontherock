@@ -51,3 +51,4 @@ const LogTargetRemove = () => {
 clear.addEventListener("click", LogTargetEmpty);
 handlers.addEventListener("click", LogTargetAdd);
 removeHandlers.addEventListener("click", LogTargetRemove);
+LogTargetAdd();
