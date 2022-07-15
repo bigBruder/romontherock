@@ -1,9 +1,3 @@
-
-document.addEventListener("DOMContentLoaded", () => {
-  logTargetAdd();
-});
-
-
 const eventsLstElem = document.querySelector(".events-list");
 const divElem = document.querySelector(".rect_div");
 const pElem = document.querySelector(".rect_p");
@@ -36,6 +30,10 @@ const logTargetAdd = () => {
   spanElem.addEventListener("click", logGreySpan, true);
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  logTargetAdd();
+});
+
 const logTargetRemove = () => {
   divElem.removeEventListener("click", logGreenDiv);
   pElem.removeEventListener("click", logGreenP);
@@ -49,5 +47,3 @@ const logTargetRemove = () => {
 clear.addEventListener("click", logTargetEmpty);
 removeHandlers.addEventListener("click", logTargetRemove);
 handlers.addEventListener("click", logTargetAdd);
-
-
