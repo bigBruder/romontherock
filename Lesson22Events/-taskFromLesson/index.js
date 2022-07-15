@@ -10,7 +10,7 @@ const logTarget = (text, color) => {
   eventsLstElem.innerHTML += `<span style='color: ${color}; margin-left: 8px;'>${text}<span>`;
 };
 
-const LogTargetEmpty = () => {
+const logTargetEmpty = () => {
   eventsLstElem.innerHTML = "";
 };
 
@@ -21,18 +21,16 @@ const logGreyP = logTarget.bind(null, "p", "grey");
 const logGreenSpan = logTarget.bind(null, "span", "green");
 const logGreySpan = logTarget.bind(null, "span", "grey");
 
-const LogTargetAdd = () => {
-  divElem.addEventListener("click", logGreyDiv, true);
+const logTargetAdd = () => {
   divElem.addEventListener("click", logGreenDiv);
-
-  pElem.addEventListener("click", logGreyP, true);
+  divElem.addEventListener("click", logGreyDiv, { capture: true });
   pElem.addEventListener("click", logGreenP);
-
-  spanElem.addEventListener("click", logGreySpan, true);
+  pElem.addEventListener("click", logGreyP, true);
   spanElem.addEventListener("click", logGreenSpan);
+  spanElem.addEventListener("click", logGreySpan, true);
 };
 
-const LogTargetRemove = () => {
+const logTargetRemove = () => {
   divElem.removeEventListener("click", logGreenDiv);
   pElem.removeEventListener("click", logGreenP);
   spanElem.removeEventListener("click", logGreenSpan);
@@ -42,7 +40,7 @@ const LogTargetRemove = () => {
   spanElem.removeEventListener("click", logGreySpan, true);
 };
 
-clear.addEventListener("click", LogTargetEmpty);
-removeHandlers.addEventListener("click", LogTargetRemove);
-handlers.addEventListener("click", LogTargetAdd);
-LogTargetAdd();
+clear.addEventListener("click", logTargetEmpty);
+removeHandlers.addEventListener("click", logTargetRemove);
+handlers.addEventListener("click", logTargetAdd);
+logTargetAdd();
