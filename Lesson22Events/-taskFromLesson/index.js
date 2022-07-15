@@ -2,9 +2,9 @@ const eventsLstElem = document.querySelector(".events-list");
 const divElem = document.querySelector(".rect_div");
 const pElem = document.querySelector(".rect_p");
 const spanElem = document.querySelector(".rect_span");
-const clear = document.querySelector(".clear-btn");
-const removeHandlers = document.querySelector(".remove-handlers-btn");
-const handlers = document.querySelector(".attach-handlers-btn");
+const clearBtn = document.querySelector(".clear-btn");
+const removeHandlersBtn = document.querySelector(".remove-handlers-btn");
+const handlersBtn = document.querySelector(".attach-handlers-btn");
 
 const logTarget = (text, color) => {
   eventsLstElem.innerHTML += `<span style='color: ${color}; margin-left: 8px;'>${text}<span>`;
@@ -22,17 +22,13 @@ const logGreenSpan = logTarget.bind(null, "span", "green");
 const logGreySpan = logTarget.bind(null, "span", "grey");
 
 const logTargetAdd = () => {
+  divElem.addEventListener("click", logGreyDiv, true);
   divElem.addEventListener("click", logGreenDiv);
-  divElem.addEventListener("click", logGreyDiv, { capture: true });
-  pElem.addEventListener("click", logGreenP);
   pElem.addEventListener("click", logGreyP, true);
-  spanElem.addEventListener("click", logGreenSpan);
+  pElem.addEventListener("click", logGreenP);
   spanElem.addEventListener("click", logGreySpan, true);
+  spanElem.addEventListener("click", logGreenSpan);
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-  logTargetAdd();
-});
 
 const logTargetRemove = () => {
   divElem.removeEventListener("click", logGreenDiv);
@@ -44,6 +40,10 @@ const logTargetRemove = () => {
   spanElem.removeEventListener("click", logGreySpan, true);
 };
 
-clear.addEventListener("click", logTargetEmpty);
-removeHandlers.addEventListener("click", logTargetRemove);
-handlers.addEventListener("click", logTargetAdd);
+clearBtn.addEventListener("click", logTargetEmpty);
+removeHandlersBtn.addEventListener("click", logTargetRemove);
+handlersBtn.addEventListener("click", logTargetAdd);
+
+document.addEventListener("DOMContentLoaded", () => {
+  logTargetAdd();
+});
