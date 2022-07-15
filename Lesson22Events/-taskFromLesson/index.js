@@ -6,6 +6,18 @@ const clear = document.querySelector(".clear-btn");
 const removeHandlers = document.querySelector(".remove-handlers-btn");
 const handlers = document.querySelector(".attach-handlers-btn");
 
+document.addEventListener("DOMContentLoaded", () => {
+  clear();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  removeHandlers();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  handlers();
+});
+
 const logTarget = (text, color) => {
   eventsLstElem.innerHTML += `<span style='color: ${color}; margin-left: 8px;'>${text}<span>`;
 };
