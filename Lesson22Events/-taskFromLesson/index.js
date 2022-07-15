@@ -7,6 +7,14 @@ const removeHandlers = document.querySelector(".remove-handlers-btn");
 const handlers = document.querySelector(".attach-handlers-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
+  clear();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  removeHandlers();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   handlers();
 });
 
@@ -43,8 +51,3 @@ const logTargetRemove = () => {
   pElem.removeEventListener("click", logGreyP, true);
   spanElem.removeEventListener("click", logGreySpan, true);
 };
-
-clear.addEventListener("click", logTargetEmpty);
-removeHandlers.addEventListener("click", logTargetRemove);
-handlers.addEventListener("click", logTargetAdd);
-logTargetAdd();
