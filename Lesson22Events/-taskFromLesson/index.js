@@ -2,6 +2,8 @@ const divElem = document.querySelector(".rect_div");
 const pElem = document.querySelector(".rect_p");
 const spanElem = document.querySelector(".rect_span");
 
+const elem = document.querySelector(".rect");
+
 const LogTarget = (text, color) => {
   const eventsLstElem = document.querySelector(".events-list");
 
@@ -24,3 +26,20 @@ pElem.addEventListener("click", logGreenP);
 
 spanElem.addEventListener("click", logGreySpan, true);
 spanElem.addEventListener("click", logGreenSpan);
+
+const handlers = document.querySelector(".attach-handlers-btn");
+const removeHandlers = document.querySelector(".remove-handlers-btn");
+
+handlers.addEventListener("click", logGreyDiv);
+handlers.addEventListener("click", logGreenDiv);
+handlers.addEventListener("click", logGreyP);
+handlers.addEventListener("click", logGreenP);
+handlers.addEventListener("click", logGreySpan);
+handlers.addEventListener("click", logGreenSpan);
+
+removeHandlers.removeEventListener("click", logGreyDiv);
+removeHandlers.removeEventListener("click", logGreenDiv);
+removeHandlers.removeEventListener("click", logGreyP);
+removeHandlers.removeEventListener("click", logGreenP);
+removeHandlers.removeEventListener("click", logGreySpan);
+removeHandlers.removeEventListener("click", logGreenSpan);
