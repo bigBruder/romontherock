@@ -48,15 +48,15 @@ const renderArena = () => {
 };
 
 const onSeatSelect = (event) => {
-  const isSeat = event.target.classList.contains(".sector__seat");
+  const isSeat = event.target.classList.contains("sector__seat");
 
   if (!isSeat) {
     return;
   }
 
-  const seatNumber = event.target.dataset.seatNumber;
-  const lineNumber = event.target.closest(".sector__line").dataset.lineNumber;
-  const sectorNumber = event.target.closest(".sector").dataset.sectorNumber;
+  const { seatNumber } = event.target.dataset;
+  const { lineNumber } = event.target.closest(".sector__line").dataset;
+  const { sectorNumber } = event.target.closest(".sector").dataset;
 
   const selectesSeatElem = document.querySelector(".board__selected-seat");
 
