@@ -10,7 +10,9 @@ const getLineSeats = () => {
   return generateNumbersRange(1, 10)
     .map(
       (seatNumber) =>
-        `<div class="sector__seat" data-seat-number="${seatNumber}"
+        `<div 
+        class="sector__seat" 
+        data-seat-number="${seatNumber}"
         ></div>`
     )
     .join("");
@@ -21,7 +23,9 @@ const getSectorLines = () => {
   return generateNumbersRange(1, 10)
     .map(
       (lineNumber) =>
-        `<div class="sector__line" data-line-number="${lineNumber}"
+        `<div 
+        class="sector__line" 
+        data-line-number="${lineNumber}"
         >${seatsString}</div>`
     )
     .join("");
@@ -34,7 +38,8 @@ const renderArena = () => {
   const sectorsString = [1, 2, 3]
     .map(
       (sectorNumber) =>
-        `<div class="sector__line" data-sector-number="${sectorNumber}"
+        `<div class="sector" 
+        data-sector-number="${sectorNumber}"
     >${lineString}</div>`
     )
     .join("");
@@ -48,9 +53,10 @@ const onSeatSelect = (event) => {
   if (!isSeat) {
     return;
   }
-  const { seatNumber } = event.target.dataset;
-  const { lineNumber } = event.target.closest(".sector__line").dataset;
-  const { sectorNumber } = event.target.closest(".sector").dataset;
+
+  const seatNumber = event.target.dataset.seatNumber;
+  const lineNumber = event.target.closest(".sector__line").dataset.lineNumber;
+  const sectorNumber = event.target.closest(".sector").dataset.sectorNumber;
 
   const selectesSeatElem = document.querySelector(".board__selected-seat");
 
