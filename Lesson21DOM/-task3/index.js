@@ -24,25 +24,30 @@
 //   document.querySelectorAll(".number");
 // console.log(squaredNumbers());
 
-function finishList() {
-  const listItems = document.querySelector(".list");
-  const listItemsSpecial = document.querySelector(".special");
+// function finishList() {
+//   const listItems = document.querySelector(".list");
+//   const listItemsSpecial = document.querySelector(".special");
 
-  const listItem1 = document.createElement("li");
-  listItem1.textContent = "1";
-  listItems.prepend(listItem1);
+//   const listItem1 = document.createElement("li");
+//   listItem1.textContent = "1";
+//   listItems.prepend(listItem1);
 
-  const listItem8 = document.createElement("li");
-  listItem8.textContent = "8";
-  listItems.append(listItem8);
+//   const listItem8 = document.createElement("li");
+//   listItem8.textContent = "8";
+//   listItems.append(listItem8);
 
-  const listItem4 = document.createElement("li");
-  listItem4.textContent = "4";
-  listItemsSpecial.before(listItem4);
+//   const listItem4 = document.createElement("li");
+//   listItem4.textContent = "4";
+//   listItemsSpecial.before(listItem4);
 
-  const listItem6 = document.createElement("li");
-  listItem6.textContent = "6";
-  listItemsSpecial.after(listItem6);
-}
+//   const listItem6 = document.createElement("li");
+//   listItem6.textContent = "6";
+//   listItemsSpecial.after(listItem6);
+// }
 
-console.log(finishList());
+// console.log(finishList());
+let setTitle = (text) => {
+  document.querySelector(".title").textContent = text;
+};
+
+console.log(setTitle("fs"));
