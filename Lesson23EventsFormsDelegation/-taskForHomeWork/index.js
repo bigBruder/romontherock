@@ -6,8 +6,6 @@
 // 2.3 add field into the empty string
 // 3. done tasks have be under the actually tasks
 
-const randomFunc = () => Math.random().toString(10).substring(2, 9);
-
 const tasks = [
   {
     text: "Buy milk",
@@ -36,7 +34,6 @@ const tasks = [
   },
 ];
 
-const listElem = document.querySelector(".list");
 const renderTasks = (taskList) => {
   const tasksElems = taskList
     .sort((a, b) => a.done - b.done)
@@ -61,10 +58,10 @@ const renderTasks = (taskList) => {
 
 renderTasks(tasks);
 
-const inputElem = document.querySelector(".task-input");
 const createBtn = document.querySelector(".create-task-btn");
 
 const handler = () => {
+  const inputElem = document.querySelector(".task-input");
   const inputValue = inputElem.value;
   if (inputValue.length === 0) {
     return;
@@ -99,9 +96,9 @@ const changeClass = (event) => {
 };
 listElem.addEventListener("click", changeClass);
 
-// const handler = (event) => {
-//   console.log(event.target.value);
-//   tasks.push({ text: event.target.value, done: false });
-//   inputElem.textContent = "";
-//   renderTasks(tasks);
-// };
+const handler = (event) => {
+  console.log(event.target.value);
+  tasks.push({ text: event.target.value, done: false });
+  inputElem.textContent = "";
+  renderTasks(tasks);
+};
