@@ -1,52 +1,75 @@
+export /* eslint-disable default-case */
 const shmoment = (initialValue) => {
   let result = new Date(initialValue);
-  const calculator = {
+  return {
     add(value, number) {
-      let finishValue;
-      if (value === "years") {
-        finishValue = result.setFullYear(result.getFullYear() + number);
-      } else if (value === "months") {
-        finishValue = result.setMonth(result.getMonth() + number);
-      } else if (value === "days") {
-        finishValue = result.setDate(result.getDate() + number);
-      } else if (value === "hours") {
-        finishValue = result.setHours(result.getHours() + number);
-      } else if (value === "minutes") {
-        finishValue = result.setMinutes(result.getMinutes() + number);
-      } else if (value === "seconds") {
-        finishValue = result.setSeconds(result.getSeconds() + number);
-      } else if (value === "milliseconds") {
-        finishValue = result.setMilliseconds(result.getMilliseconds() + number);
+      switch (value) {
+        case "years":
+          result.setFullYear(result.getFullYear() + number);
+          return this;
+        case "months":
+          result.setMonth(result.getMonth() + number);
+          return this;
+        case "days":
+          result.setDate(result.getDate() + number);
+          return this;
+        case "hours":
+          result.setHours(result.getHours() + number);
+          return this;
+        case "minutes":
+          result.setMinutes(result.getMinutes() + number);
+          return this;
+        case "seconds":
+          result.setSeconds(result.getSeconds() + number);
+          return this;
+        case "milliseconds":
+          result.setMilliseconds(result.getMilliseconds() + number);
+          return this;
+          break;
       }
-      result = +finishValue;
-      return this;
+      return result;
     },
     subtract(value, number) {
-      let finishValue;
-      if (value === "years") {
-        finishValue = result.setFullYear(result.getFullYear() - number);
-      } else if (value === "months") {
-        finishValue = result.setMonth(result.getMonth() - number);
-      } else if (value === "days") {
-        finishValue = result.setDate(result.getDate() - number);
-      } else if (value === "hours") {
-        finishValue = result.setHours(result.getHours() - number);
-      } else if (value === "minutes") {
-        finishValue = result.setMinutes(result.getMinutes() - number);
-      } else if (value === "seconds") {
-        finishValue = result.setSeconds(result.getSeconds() - number);
-      } else if (value === "milliseconds") {
-        finishValue = result.setMilliseconds(result.getMilliseconds() - number);
+      switch (value) {
+        case "years":
+          result.setFullYear(result.getFullYear() - number);
+          return this;
+        case "months":
+          result.setMonth(result.getMonth() - number);
+          return this;
+
+        case "days":
+          result.setDate(result.getDate() - number);
+          return this;
+
+        case "hours":
+          result.setHours(result.getHours() - number);
+          return this;
+
+        case "minutes":
+          result.setMinutes(result.getMinutes() - number);
+          return this;
+
+        case "seconds":
+          result.setSeconds(result.getSeconds() - number);
+          return this;
+
+        case "milliseconds":
+          result.setMilliseconds(result.getMilliseconds() - number);
+          return this;
+
+          break;
       }
-      result += finishValue;
-      return this;
+      return result;
     },
     result() {
-      return new Date(result);
+      return result;
     },
   };
-  return calculator;
 };
-console.log(
-  shmoment(new Date(2022, 7, 20, 13, 25, 57)).subtract("months", 3).result()
-);
+// console.log(
+//   shmoment(new Date(2022, 7, 20, 13, 25, 57))
+//     .subtract("months", 3)
+//     .subtract("months", 3)
+//     .result()
+// );
