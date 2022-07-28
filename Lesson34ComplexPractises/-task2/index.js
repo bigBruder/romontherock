@@ -1,33 +1,38 @@
 const submitBtnElem = document.querySelector(".submit-button");
 const formElem = document.querySelector(".login-form");
-
 const isValid = formElem.reportValidity();
 
 const baseUrl =
   "https://62e1a704e8ad6b66d84db2d8.mockapi.io/5f565b3ec0a34aac866092b1c93a4809";
 
-const formData = () => console.log(Object.fromEntries(new FormData(formElem)));
-
-const createData = (data) => {
+const createData = (userData) => {
   return fetch(baseUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(userData),
   });
 };
 
-const userData = () => {
-  return fetch(baseUrl).then((response) => response.json());
+const onButtonClick = (e) => {
+  e.preventDefault();
+  if (isValid) {
+    submitBtnElem.removeAttribute("disabled");
+  }
+  const formData = () => Object.fromEntries(new FormData(formElem));
+  return formData;
 };
 
-const onFormSubmit = () => {
-  createData(formData).then(() => userData());
-  submitBtnElem.setAttribute("disabled", isValid);
-  alert(formData);
+const onFormSubmit = (e) => {
+  e.preventDefault();
+  const formData = () => Object.fromEntries(new FormData(formElem));
+  createData(formData)
+    .then((response) => response.json())
+    .then((result) => alert(JSON.stringify(result)))
+    .then(() => formElem.reset());
 };
-
+formElem.addEventListener("input", onButtonClick);
 submitBtnElem.addEventListener("submit", onFormSubmit);
 
 // const emailErrorElem = document.querySelector(".error-text_email");
