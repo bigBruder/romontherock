@@ -2,7 +2,7 @@ const submitBtnElem = document.querySelector(".submit-button");
 const formElem = document.querySelector(".login-form");
 const isValid = formElem.reportValidity();
 
-const url = "https://62e0303a98dd9c9df60f6e25.mockapi.io/api/v1/users";
+const url = "https://62e1a704e8ad6b66d84db2d8.mockapi.io/api/v1/users";
 
 function createUser(userData) {
   return fetch(url, {
