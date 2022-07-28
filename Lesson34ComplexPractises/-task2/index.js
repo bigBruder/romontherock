@@ -2,38 +2,43 @@ const submitBtnElem = document.querySelector(".submit-button");
 const formElem = document.querySelector(".login-form");
 const isValid = formElem.reportValidity();
 
-const baseUrl =
-  "https://62e1a704e8ad6b66d84db2d8.mockapi.io/5f565b3ec0a34aac866092b1c93a4809";
+const url = "https://62e0303a98dd9c9df60f6e25.mockapi.io/api/v1/users";
 
-const createData = (userData) => {
-  return fetch(baseUrl, {
+function createUser(userData) {
+  return fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(userData),
+  }).then((response) => {
+    formElem.reset();
+    submitBtnElem.setAttribute("disabled", "");
+    return response.json();
   });
-};
+}
 
-const onButtonClick = (e) => {
-  e.preventDefault();
-  if (isValid) {
-    submitBtnElem.removeAttribute("disabled");
+function getFormData() {
+  const formData = Object.fromEntries(new FormData(formElem));
+  createUser(formData).then((data) => {
+    alert(JSON.stringify(data));
+  });
+}
+
+function submitForm(event) {
+  event.preventDefault();
+}
+formElem.addEventListener("submit", submitForm);
+
+function checkValidity() {
+  const isValid = formElem.reportValidity();
+  if (!isValid) {
+    return;
   }
-  const formData = () => Object.fromEntries(new FormData(formElem));
-  return formData;
-};
-
-const onFormSubmit = (e) => {
-  e.preventDefault();
-  const formData = () => Object.fromEntries(new FormData(formElem));
-  createData(formData)
-    .then((response) => response.json())
-    .then((result) => alert(JSON.stringify(result)))
-    .then(() => formElem.reset());
-};
-formElem.addEventListener("input", onButtonClick);
-submitBtnElem.addEventListener("submit", onFormSubmit);
+  submitBtnElem.removeAttribute("disabled");
+  submitBtnElem.addEventListener("click", getFormData);
+}
+formElem.addEventListener("input", checkValidity);
 
 // const emailErrorElem = document.querySelector(".error-text_email");
 // const passwordErrorElem = document.querySelector(".error-text_password");
