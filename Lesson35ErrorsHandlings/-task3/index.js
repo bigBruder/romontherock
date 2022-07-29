@@ -1,7 +1,7 @@
 import { fetchUserData, fetchRepositories } from "./gateWays.js";
 import { renderUserData } from "./user.js";
-import { renderRepos } from "./repos.js";
-import { showSpinner, hiddenSpinner } from "./spinner.js";
+import { renderRepos, cleanReposList } from "./repos.js";
+import { showSpinner, hideSpinner } from "./spinner.js";
 
 const defaultUser = {
   avatar_url: "https://avatars3.githubusercontent.com/u10001",
@@ -12,11 +12,10 @@ renderUserData(defaultUser);
 
 const showUserBtnElem = document.querySelector(".name-form__btn");
 const userNameInputElem = document.querySelector(".name-form__input");
-const listElem = document.querySelector(".repo-list");
 
 const onSearchUser = () => {
   showSpinner();
-  listElem.innerHTML = "";
+  cleanReposList();
   const userName = userNameInputElem.value;
   fetchUserData(userName)
     .then((userData) => {
@@ -26,8 +25,10 @@ const onSearchUser = () => {
     .then((url) => fetchRepositories(url))
     .then((reposList) => renderRepos(reposList))
     .catch((err) => {
-      hiddenSpinner();
       alert(err.message);
+    })
+    .finally(() => {
+      hideSpinner();
     });
 };
 
