@@ -1,0 +1,22 @@
+{
+  "folders": [
+	{
+		"path": "..\\..\\..\\HTML. SCC"
+	},
+	{
+		"path": "..\\.."
+	},
+	{
+		"path": "..\\..\\..\\LIVE_CODING"
+	},
+	{
+		"path": "..\\..\\..\\gromcode_project_1"
+	},
+	{
+		"path": "..\\..\\..\\gromcode_project_2"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "JS full"
+  }
+}

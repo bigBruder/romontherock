@@ -37,34 +37,3 @@ const onButtonClick = () => {
 };
 
 formElem.addEventListener("input", onButtonClick);
-
-// const emailErrorElem = document.querySelector(".error-text_email");
-// const passwordErrorElem = document.querySelector(".error-text_password");
-
-// const isRequired = (value) => (value ? undefined : "Required");
-// const isEmail = (value) =>
-//   value.includes("@") ? undefined : "Should be an email";
-
-// const onEmailChange = (event) => {
-//   const errorText = [isRequired, isEmail]
-//     .map((validator) => validator(event.target.value))
-//     .filter((errorText) => errorText)
-//     .join(", ");
-//   emailErrorElem.textContent = errorText;
-// };
-// const onPasswordChange = (event) => {
-//   const errorText = [isRequired]
-//     .map((validator) => validator(event.target.value))
-//     .filter((errorText) => errorText)
-//     .join(", ");
-//   passwordErrorElem.textContent = errorText;
-// };
-
-// emailInputElem.addEventListener("input", onEmailChange);
-// passwordInputElem.addEventListener("input", onPasswordChange);
-
-// 1. Prepare data
-// 2. Write data to dataBase
-// 3. Read new data from the server
-// 4. Save new data to fromt-end storage
-// 5. Update UI based on a new data
